@@ -1,0 +1,106 @@
+<body>
+  <header>
+    <img id="logo" src= http://meltwater.org/wp-content/uploads/2015/05/mestlogofull_landscape_blue-1024x287-1.png alt="MEST Logo" >
+     
+      <h1>EIT Management Platform</h1>
+
+      <p align="left">{{> loginButtons}}</p>
+       
+      
+    </header>
+
+  <div class="container">
+     <header>
+           <p>Welcome to the MEST EIT Managment Portal, here you can register new students, view registered students, edit records and delete records</p>
+          
+          
+       
+     
+      
+    </header>
+
+     
+    
+      
+       <form id="eitform">
+
+        <h3>Register New Student</h3>
+
+        <input type="hidden" name="id">
+        First name:
+        <input type="text" name="firstname" placeholder="EIT First name" />
+        Last name:
+        <input type="text" name="lastname" placeholder="EIT Surname" /><br><br>
+
+        Gender:
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other<br><br>
+         Date of Birth:
+        <input type="date" name="dateofbirth" placeholder="22 April 1990" /><br><br>
+        
+        <button class="mybtn">Sumbit</button>
+        </form>
+
+
+         
+        <p style="text-align:center"><b>EIT RECORDS</b></p>
+
+      <p>To Delete, Click on the row/s you want to delete and then click on the 'Delete' Button
+      <button class="mybtndelete" id="deletebtn">
+        Delete</button></p>
+   
+     
+     
+ 
+ 
+  <table style="width:100%">    
+    <thead>
+      <tr>
+        <th>Check</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Delete</th>
+      </tr>
+      
+    </thead>
+
+    {{#each eitdata}}
+     {{> youtry}}
+    {{/each}}
+
+  </table>
+
+</div>
+
+
+   
+</body> 
+
+
+
+
+
+
+<template name="youtry">
+      
+     <tr> 
+        
+        <td><input type="checkbox" class="delete-checkbox" value="{{_id}}" /></td>
+        <td>{{firstname}}</td>
+        <td>{{lastname}}</td>
+        <td>{{gender}}</td>
+        <td>{{dateofbirth}}</td>
+        <td><button class="mybtnupdate" id="updatebtn" >Update</button></td>
+        
+      <!--  <td><button class="delete">&times;</button></td> -->
+       
+      <!--  <td><a href="/eits/edit/{{ _id }}"><i class="fa fa-edit"></i> Edit</a></td> -->
+             
+    </tr>  
+
+</template>
+
+
